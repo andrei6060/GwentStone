@@ -76,12 +76,12 @@ public final class Main {
         ArrayNode output = objectMapper.createArrayNode();
 
         //TODO add here the entry point to your implementation
-        final int cinci = 5;
-        final int trei = 3;
-        final int  zece = 10;
-        final int sapte = 7;
-        int wins1 = 0;
-        int wins2 = 0;
+final int cinci = 5;
+final int trei = 3;
+final int  zece = 10;
+final int sapte = 7;
+int wins1 = 0;
+int wins2 = 0;
         for (int j = 0; j < inputData.getGames().size(); j++) {
             int okay = 0;
             StartGameInput startGameInput;
@@ -149,6 +149,7 @@ public final class Main {
 
             player2.hand = new ArrayList<>();
             player2.hand.add(handcard2);
+
 
 
             int turn = inputData.getGames().get(j).getStartGame().getStartingPlayer();
@@ -405,7 +406,7 @@ public final class Main {
                                     || (player1.hand.get(handIdx).getName().equals("Disciple"))
                                     || (player1.hand.get(handIdx).getName()
                                     .equals("The Cursed One")))) {
-                                if (player1.getMana() - player1.hand.get(handIdx).getMana() >= 0) {
+                              if (player1.getMana() - player1.hand.get(handIdx).getMana() >= 0) {
                                     table.row3.add(player1.hand.get(handIdx));
                                 } else {
                                     ok = 1;
@@ -426,11 +427,11 @@ public final class Main {
                                 ok = 1;
 
                             } else if ((table.row2.size() < cinci) && ((player1.hand.get(handIdx)
-                                    .getName().equals("Miraj"))
+                                  .getName().equals("Miraj"))
                                     || (player1.hand.get(handIdx).getName().equals("The Ripper"))
                                     || (player1.hand.get(handIdx).getName().equals("Goliath"))
                                     || (player1.hand.get(handIdx).getName().equals("Warden")))) {
-                                if (player1.getMana() - player1.hand.get(handIdx).getMana() >= 0) {
+                              if (player1.getMana() - player1.hand.get(handIdx).getMana() >= 0) {
                                     table.row2.add(player1.hand.get(handIdx));
                                 } else {
                                     ok = 1;
@@ -463,7 +464,7 @@ public final class Main {
                         if (handIdx < player2.hand.size()) {
                             if ((player2.hand.get(handIdx).getName().equals("Winterfell"))
                                     || (player2.hand.get(handIdx).getName().equals("Heart Hound"))
-                                    || (player2.hand.get(handIdx).getName().equals("Firestorm"))) {
+                                  || (player2.hand.get(handIdx).getName().equals("Firestorm"))) {
                                 output.addObject().put("command", action.getCommand()).
                                         put("error", "Cannot place environment card on table.").
                                         put("handIdx", action.getHandIdx());
@@ -474,7 +475,7 @@ public final class Main {
                                     || (player2.hand.get(handIdx).getName().equals("Disciple"))
                                     || (player2.hand.get(handIdx).getName()
                                     .equals("The Cursed One")))) {
-                                if (player2.getMana() - player2.hand.get(handIdx).getMana() >= 0) {
+                              if (player2.getMana() - player2.hand.get(handIdx).getMana() >= 0) {
                                     table.row0.add(player2.hand.get(handIdx));
                                 } else {
                                     ok = 1;
@@ -498,7 +499,7 @@ public final class Main {
                                     || (player2.hand.get(handIdx).getName().equals("The Ripper"))
                                     || (player2.hand.get(handIdx).getName().equals("Goliath"))
                                     || (player2.hand.get(handIdx).getName().equals("Warden")))) {
-                                if (player2.getMana() - player2.hand.get(handIdx).getMana() >= 0) {
+                              if (player2.getMana() - player2.hand.get(handIdx).getMana() >= 0) {
                                     table.row1.add(player2.hand.get(handIdx));
                                 } else {
                                     ok = 1;
@@ -649,7 +650,7 @@ public final class Main {
                                             put("handIdx", action.getHandIdx()).
                                             put("affectedRow", action.getAffectedRow()).
                                             put("error",
-                                                    "Cannot steal enemy card since the player's row is full.");
+                                     "Cannot steal enemy card since the player's row is full.");
                                 } else {
                                     HeartHound env = new HeartHound((Environment) player1
                                             .hand.get(action.getHandIdx()));
@@ -727,7 +728,7 @@ public final class Main {
                                             put("handIdx", action.getHandIdx()).
                                             put("affectedRow", action.getAffectedRow()).
                                             put("error",
-                                                    "Cannot steal enemy card since the player's row is full.");
+                                     "Cannot steal enemy card since the player's row is full.");
                                 } else {
                                     HeartHound env = new HeartHound((Environment) player2.hand
                                             .get(action.getHandIdx()));
@@ -766,7 +767,7 @@ public final class Main {
                                     .putPOJO("output", card);
                         } else {
                             output.addObject().put("command", action
-                                            .getCommand()).put("x", action.getX())
+                                    .getCommand()).put("x", action.getX())
                                     .put("y", action.getY())
                                     .putPOJO("output",
                                             "No card available at that position.");
@@ -1165,7 +1166,7 @@ public final class Main {
                                     || (action.getAffectedRow() == trei)) {
                                 output.addObject().put("command", action.getCommand())
                                         .put("affectedRow", action.getAffectedRow())
-                                        .put("error", "Selected row does not belong to the enemy.");
+                                      .put("error", "Selected row does not belong to the enemy.");
                                 ok = 0;
                             }
                             if (ok == 1) {
@@ -1196,7 +1197,7 @@ public final class Main {
                                 output.addObject().put("command", action.getCommand())
                                         .put("affectedRow", action.getAffectedRow())
                                         .put("error",
-                                                "Selected row does not belong to the current player.");
+                                           "Selected row does not belong to the current player.");
                                 ok = 0;
                             }
 
@@ -1240,7 +1241,7 @@ public final class Main {
                             if ((action.getAffectedRow() == 0) || (action.getAffectedRow() == 1)) {
                                 output.addObject().put("command", action.getCommand())
                                         .put("affectedRow", action.getAffectedRow())
-                                        .put("error", "Selected row does not belong to the enemy.");
+                                      .put("error", "Selected row does not belong to the enemy.");
                                 ok = 0;
                             }
 
@@ -1271,7 +1272,7 @@ public final class Main {
                                 output.addObject().put("command", action.getCommand())
                                         .put("affectedRow", action.getAffectedRow())
                                         .put("error",
-                                                "Selected row does not belong to the current player.");
+                                           "Selected row does not belong to the current player.");
                                 ok = 0;
                             }
 
@@ -1299,7 +1300,18 @@ public final class Main {
 
                     }
 
+                } else if (action.getCommand().equals("getTotalGamesPlayed")) {
+                    output.addObject().put("command", action.getCommand())
+                            .putPOJO("output", wins1 + wins2);
+                } else if (action.getCommand().equals("getPlayerTwoWins")) {
+                    output.addObject().put("command", action.getCommand())
+                            .putPOJO("output", wins2);
+                } else if (action.getCommand().equals("getPlayerOneWins")) {
+                    output.addObject().put("command", action.getCommand())
+                            .putPOJO("output", wins1);
+
                 }
+
             }
         }
 
