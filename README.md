@@ -1,1 +1,1 @@
-# Laboratories
+Crearea claselor pentru tema
