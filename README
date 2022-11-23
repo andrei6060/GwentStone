@@ -1,0 +1,73 @@
+1. In clasa Main preiau datele aferente fiecarui joc din InputData si le folosesc pentru a
+crea jucatorii, deckurile jucatorilor, cartile din mainile lor, eroii lor si
+masa pe care urmeaza sa se joace. In plus, fac un vector array list de actiuni,
+format din actiunile aferente fiecarui joc. Iterez prin aces array list de actiuni,
+si in functie de numele actiunii urmeaza pasii necesari indeplinirii cerintei
+pentru fiecare tip de actiune in parte.
+
+2. Clasa Player, ce reprezinta blueprint-ul unui jucator, contine campurile urmatoare:
+    -turn(boolean ce este true daca e randul playerului respectiv, altfel false)
+    -deck(array list ce reprezinta deck ul respectivului jucator)
+    -hand(array list ce reprezinta cartile pe care le are in mana jucatorul)
+    -mana(int ce retine cantitatea de mana avuta de jucator)
+(si setteri si getteri ce mi-au fost de folos in implementare)
+
+3. Clasa Table, ce reprezinta blueprint-ul mesei de joc, contine campurile urmatoare:
+    -turn(int ce retine indexul player-ului al carui rand este)
+    -round(int ce retine numarul rundei jocului curent)
+    -roundFirst(boolean ce este true daca primului jucator i-a trecut tura pe runda curenta)
+    -roundSecond(aceeasi utilizare ca a lui roundFirst, dar pentru jucatorul 2)
+    -row0/1/2/3(array list ce retine cartile aflate pe randul 0/1/2/3 al tablei)
+    -table(array list de array lists ce retine cartile aflate pe tabla)
+    -metoda table(metoda ce (re)initilizeaza masa, dupa ce aceasta a suferit modificari)
+(si setteri si getteri ce mi-au fost de folos in implementare)
+
+4. Clasa Card, ce reprezinta blueprint-ul unei carti oarecare din joc, contine campurile urmatoare:
+    -frozen(boolean ce este true, in cazul in care cartea e inghetata, si altfel false)
+    -frozencount(int ce retine numarul de ture in timpul carora cartea a fost frozen)
+    -mana(int ce retine mana necesara pentru folosirea cartii respective)
+    -description(String ce retine descrierea cartii respective)
+    -colors(array list ce retine culorile specifice cartii)
+    -name(array list ce contine numele cartii respective)
+(si setteri si getteri ce mi-au fost de folos in implementare)
+
+5. Clasa Minion, ce reprezinta blueprint-ul unei carti tip Minion, extinde clasa Card,
+si contine campurile urmatoare(in plus, pe langa cele mostenite de la clasa parinte):
+    -hasAttacked(boolean ce retine daca respectivul Minion a atacat in timpul rundei curente)
+    -attackDamage(int ce retine damage-ul provocat de atacul Minionului respectiv)
+    -health(int ce retine viata Minionului respectiv)
+    -copy-constructori ce primesc ca parametru un obiect de tip CardInput sau Minion
+(si setteri si getteri ce mi-au fost de folos in implementare)
+
+6. Clasa Environment, ce reprezinta blueprint-ul unei carti de tip Environment, extinde clasa Card,
+si contine campurile urmatoare(in plus, pe langa cele mostenite de la clasa parinte):
+    -copy-constructori ce primesc ca parametru un obiect de tip CardInput sau Environment
+    -metoda ability ce reprezinta abilitatea specifica unei carti de tip Environment
+(si setteri si getteri ce mi-au fost de folos in implementare)
+
+7. Clasa Hero, ce reprezinta blueprint-ul unui erou, extinde clas Card,
+si contine campurile urmatoare(in plus, pe langa cele mostenite de la clasa parinte):
+    -healthinitial(int ce retine viata initiala a eroului)
+    -hasAttacked(boolean ce retine daca respectivul Minion a atacat in timpul rundei curente)
+    -health(int ce retine viata eroului, la momentul respectiv)
+    -copy-constructori ce primesc ca parametru un obiect de tip CardInput sau Hero
+(si setteri si getteri ce mi-au fost de folos in implementare)
+
+8. Clasele Disciple, Miraj, TheRipper si TheCursedOne, ce reprezinta blueprint-ul unui Minion
+cu numele egal cu numele clasei, extind clasa Minion, si contin urmatoarele campuri(in plus, pe
+langa cele mostenite de la clasa parinte):
+    -metoda godsplan/skyjack/weakknees/shapeshift ce implementeaza abilitatea speciala
+a fiecarui tip de Minion
+
+9. Clasele Winterfell, Firestorm si HeartHound, ce reprezinta blueprint-ul unei carti de tip
+Environment, cu numele egal cu numele clasei, extind clasa Environment, si contin urmatoarele
+campuri(in plus, pe langa cele mostenite de la clasa parinte):
+    -un Override al metodei ability din clasa parinte, ce implementeaza abilitatea specifica
+fiecarei carte de tip Environment
+    -un copy-constructor ce primeste ca parametru un obiect de tip Environment
+
+10. Clasele EmpressThorina, LordRoyce, GeneralKociraw si KingMudface, ce reprezinta bluprint-ul
+unui erou, cu numele egal cu numele clasei, extind clasa Hero, si contin urmatoarele campuri
+(in plus, pe langa cele mostenite de la clasa parinte):
+    -un copy-constructor ce primeste ca parametru un obiect de tip Hero
+    -o metoda ce implementeaza abilitatea speciala a fiecarui tip de erou
